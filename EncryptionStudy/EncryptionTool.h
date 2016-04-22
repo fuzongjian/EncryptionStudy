@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonCrypto.h>
 @interface EncryptionTool : NSObject
 /** MD5加密  不可逆  返回32位*/
 + (NSString *)EncryptionTool_MD5_Encrypt:(NSString *)str;
@@ -24,4 +24,21 @@
  *  PKCS5Padding 填充模式
  *  
  */
+/** AES加密 destring 加密字符串  keystring 秘钥  iv 向量偏移  返回加密后 base64编码 字符串 */
++ (NSString *)EncryptionTool_AES_Enstring:(NSString *)enstring KeyString:(NSString *)keystring Iv:(NSData *)iv;
+/** AES加密 endata 加密二进制数据  keystring 秘钥  iv 向量偏移  返回加密后二进制数据 */
++ (NSData *)EncryptionTool_AES_Endata:(NSData *)endata KeyString:(NSString *)keystring Iv:(NSData *)iv;
+/** AES解密 destring 解密字符串  keystring 秘钥  iv 向量偏移   解密后字符串 */
++ (NSString *)EncryptionTool_AES_Destring:(NSString *)destring KeyString:(NSString *)keystring Iv:(NSData *)iv;
+/** AES解密 dedata 解密二进制数据  keystring 秘钥  iv 向量偏移   解密后二进制数据 */
++ (NSData *)EncryptionTool_AES_Dedata:(NSData *)dedata KeyString:(NSString *)keystring Iv:(NSData *)iv;
+
+/** DES加密 destring 加密字符串  keystring 秘钥  iv 向量偏移  返回加密后 base64编码 字符串 */
++ (NSString *)EncryptionTool_DES_Enstring:(NSString *)enstring KeyString:(NSString *)keystring Iv:(NSData *)iv;
+/** DES加密 endata 加密二进制数据  keystring 秘钥  iv 向量偏移  返回加密后二进制数据 */
++ (NSData *)EncryptionTool_DES_Endata:(NSData *)endata KeyString:(NSString *)keystring Iv:(NSData *)iv;
+/** DES解密 destring 解密字符串  keystring 秘钥  iv 向量偏移   解密后字符串 */
++ (NSString *)EncryptionTool_DES_Destring:(NSString *)destring KeyString:(NSString *)keystring Iv:(NSData *)iv;
+/** DES解密 dedata 解密二进制数据  keystring 秘钥  iv 向量偏移   解密后二进制数据 */
++ (NSData *)EncryptionTool_DES_Dedata:(NSData *)dedata KeyString:(NSString *)keystring Iv:(NSData *)iv;
 @end
