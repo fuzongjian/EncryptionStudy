@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "EncryptionTool.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 @interface ViewController ()
 
 @end
@@ -70,6 +71,34 @@
     NSString * destr = @"iCJy1HzduIij0koqHI2yg4wItFKQAH/3JMr65y8ehmrVY4fbyXFVeIsS8PqJ2dz+osIWD33rqnKI+t0EobtyGw==";
     NSString * custom = [EncryptionTool EncryptionTool_AES_Destring:destr KeyString:keyStr Iv:iv];
     NSLog(@"AES解密%@",custom);
+}
+#pragma mark --- 指纹解锁
+/*
+     首先要导入LocalAuthentication.framework包
+     其次，导入头文件 #import <LocalAuthentication/LocalAuthentication.h>
+ */
+- (IBAction)fingerPrintLockButtonClicked:(id)sender {
+    LAContext * context = [[LAContext alloc] init];
+    __block NSString * msg;
+    NSError * error;
+    BOOL success;
+    //判断是否支持指纹解锁
+    success = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error];
+    if (success) {
+        msg = [NSString stringWithFormat:NSLocalizedString(@"TOUCH_ID_IS_AVAILABLE", nil)];
+        //开始验证指纹
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthentication localizedReason:NSLocalizedString(@"UNLOCK_ACCESS_TO_LOCKED_FATURE", nil) reply:^(BOOL success, NSError * _Nullable error) {
+            if (success) {
+                msg = [NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_SUCCESS", nil)];
+                NSLog(@"成功");
+            }else{
+                msg = [NSString stringWithFormat:NSLocalizedString(@"EVALUATE_POLICY_WITH_ERROR", nil)];
+            }
+        }];
+    }else{
+        msg = [NSString stringWithFormat:NSLocalizedString(@"TOUCH_ID_IS_NOT_AVAILABLE", nil)];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -16,6 +16,7 @@
 		50473EE21CC8BB6F00E3F847 /* EncryptionStudyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50473EE11CC8BB6F00E3F847 /* EncryptionStudyTests.m */; };
 		50473EED1CC8BB6F00E3F847 /* EncryptionStudyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50473EEC1CC8BB6F00E3F847 /* EncryptionStudyUITests.m */; };
 		50473EFC1CC8BBFF00E3F847 /* EncryptionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 50473EFB1CC8BBFF00E3F847 /* EncryptionTool.m */; };
+		50FAA8DF1CF046930073760E /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FAA8DE1CF046930073760E /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		50473EEE1CC8BB6F00E3F847 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50473EFA1CC8BBFF00E3F847 /* EncryptionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTool.h; sourceTree = "<group>"; };
 		50473EFB1CC8BBFF00E3F847 /* EncryptionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionTool.m; sourceTree = "<group>"; };
+		50FAA8DE1CF046930073760E /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FAA8DF1CF046930073760E /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,7 @@
 		50473EBB1CC8BB6F00E3F847 = {
 			isa = PBXGroup;
 			children = (
+				50FAA8DE1CF046930073760E /* LocalAuthentication.framework */,
 				50473EC61CC8BB6F00E3F847 /* EncryptionStudy */,
 				50473EE01CC8BB6F00E3F847 /* EncryptionStudyTests */,
 				50473EEB1CC8BB6F00E3F847 /* EncryptionStudyUITests */,
